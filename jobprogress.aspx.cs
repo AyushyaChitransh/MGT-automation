@@ -10,6 +10,7 @@ using System.IO;
 using System.Drawing;
 using System.Configuration;
 using System.Web.Configuration;
+using System.Globalization;
 
 public partial class jobprogress : System.Web.UI.Page
 {
@@ -38,8 +39,9 @@ public partial class jobprogress : System.Web.UI.Page
         List<DateTime> fincollection = new List<DateTime>();
         for (int i = 0; i < dvfin.Table.Rows.Count; i++)
         {
-            DateTime ee = Convert.ToDateTime(dvfin.Table.Rows[i]["date"]);
-            if (!fincollection.Contains(ee)) fincollection.Add(ee);
+            string date = dvfin.Table.Rows[i]["date"].ToString();
+            DateTime parsedDate = DateTime.ParseExact(date, "M/d/yyyy", null);
+            if (!fincollection.Contains(parsedDate)) fincollection.Add(parsedDate);
         }
         for (int i = 0; i < dvplan.Table.Rows.Count; i++)
         {
@@ -48,7 +50,7 @@ public partial class jobprogress : System.Web.UI.Page
             {
                 foreach (string item in dates)
                 {
-                    DateTime ee = Convert.ToDateTime(item);
+                    DateTime ee = DateTime.ParseExact(item, "M/d/yyyy", null);
                     if (!plancollection.Contains(ee)) plancollection.Add(ee);
                 }
             }
@@ -74,7 +76,8 @@ public partial class jobprogress : System.Web.UI.Page
             {
                 foreach (string str in thisdates)
                 {
-                    dt.Add(Convert.ToDateTime(str));
+
+                    dt.Add(DateTime.ParseExact(str, "M/d/yyyy", null));
                 }
             }
             xx.Value = dvplan.Table.Rows[i]["phase"].ToString();
@@ -83,7 +86,8 @@ public partial class jobprogress : System.Web.UI.Page
             List<DateTime> dt2 = new List<DateTime>();
             for (int j = 0; j < dvfinthisphase.Table.Rows.Count; j++)
             {
-                dt2.Add(Convert.ToDateTime(dvfinthisphase.Table.Rows[j]["date"]));
+                dt2.Add(DateTime.ParseExact(dvfinthisphase.Table.Rows[j]["date"].ToString(), "M/d/yyyy", null));
+                //dt2.Add(Convert.ToDateTime(dvfinthisphase.Table.Rows[j]["date"]));
             }
             dvfinthisphase.Sort = "date";
 
