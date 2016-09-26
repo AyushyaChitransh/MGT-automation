@@ -39,7 +39,7 @@
                                         <fieldset>
                                             <asp:Label ID="lblmtype" runat="server" CssClass="label label-info" Text="Machine Type"></asp:Label>
                                             <asp:DropDownList ID="ddlmtype" runat="server" DataSourceID="sdsmtype" DataTextField="type" DataValueField="type" CssClass="form-control" ></asp:DropDownList>
-                                            <asp:RequiredFieldValidator ErrorMessage="Please specify Name" ControlToValidate="TextBox1" runat="server" />
+                                            <asp:RequiredFieldValidator ErrorMessage="Please specify Name" ControlToValidate="TextBox1" runat="server" ValidationGroup="AddMachine" />
                                             <asp:TextBox ID="TextBox1" runat="server" placeholder="Machine Name" CssClass="form-group form-control">
                                             </asp:TextBox>
                                             <asp:Label Text="Location" CssClass="label label-info" ID="LabelLocation" runat="server" />
@@ -54,7 +54,7 @@
                                         </fieldset>
                                     </div>
                                     <div class="panel-footer">
-                                        <asp:Button Text="Add Machine" ID="buttonLogin" OnClick="ButtonAdd_Click" CssClass="btn btn-lg btn-success btn-block" runat="server" />
+                                        <asp:Button Text="Add Machine" ID="buttonLogin" OnClick="ButtonAdd_Click" CssClass="btn btn-lg btn-success btn-block" runat="server" ValidationGroup="AddMachine" />
                                     </div>
                                 </div>
                             </div>

@@ -12,6 +12,9 @@
     <div class="col-lg-4" style="margin-top:40px;">
         <asp:Button CssClass="btn btn-primary btn-block" runat="server" ID="input" Text="INPUT MODE" style="" OnClick="input_Click" />
     </div>
-
+    <p class="container">
+        <br />
+    <center><iframe src="http://www.youtube.com/embed/q2Xm9TJad7E" width="854px" height="400px" frameborder="0" allowfullscreen></iframe>
+</center></p>
 </asp:Content>
 

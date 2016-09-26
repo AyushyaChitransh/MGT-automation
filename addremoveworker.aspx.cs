@@ -54,12 +54,12 @@ public partial class addremoveworker : System.Web.UI.Page
 
     protected void addworker_Click(object sender, EventArgs e)
     {
-        con.Open();
         SqlCommand cmd = new SqlCommand("insert into [job-worker](job,wid,time,status) values(@j,@w,@t,@s)",con);
         cmd.Parameters.AddWithValue("@j",Request.QueryString["jid"].ToString());
         cmd.Parameters.AddWithValue("@w",ddlworkers.SelectedValue);
         cmd.Parameters.AddWithValue("@t",DateTime.ParseExact(tbadddate.Text, "dd-MM-yyyy",null));
         cmd.Parameters.AddWithValue("@s","ADDED");
+        con.Open();
         cmd.ExecuteNonQuery();
         con.Close();
         Response.Redirect("addremoveworker.aspx?jid="+Request.QueryString["jid"].ToString()+"&mid="+Request.QueryString["mid"].ToString());

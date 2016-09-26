@@ -32,7 +32,7 @@
         </div>
         <div class="col-lg-2">
             <asp:Label ID="chslot" CssClass="label label-info" runat="server" Text="CHANGE SLOT"></asp:Label>
-            <asp:DropDownList ID="ddlchslot" runat="server" Width="10"></asp:DropDownList>
+            <asp:DropDownList ID="ddlchslot" runat="server" ></asp:DropDownList>
         </div>
         <div class="col-lg-2">
             <asp:Button ID="btnChange" runat="server" Text="CHANGE" CssClass="btn btn-info" OnClick="btnChange_Click" />
